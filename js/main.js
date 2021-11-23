@@ -25,6 +25,6 @@ console.log(random,random.length);
 
 /*----- functions -----*/
 
-//init();
+// init();
 
-//render();
+// render();
