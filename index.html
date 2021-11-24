@@ -21,15 +21,30 @@
 
     </tr>
     <tr>
-        <td class="results" colspan=2> Letters and lines</td>
+        <td class="results" id="guessWord" colspan=2> Letters and lines</td>
     </tr>
     <tr>
-        <td class="guessed">Previous Guesses: <span></span></td>
+        <td class="results" id="showRandom" colspan=2> The random word placeholder row.</td>
+    </tr>
+   <tr>
+        <td class="guessed" id="guessedLetters">Bad Guesses Left:<span></span></td>
  
-        <td class="fails"> GuessesLeft <span></span></td>
+        <td class="fails" id="badGuesses"> Guesses Left: <span></span></td>
+    </tr>
+    <tr>
+        <td class="noclass">Letters Remaining<span></span></td>
+ 
+        <td class="noclass" id="remainingLetters">How many letters left: <span></span></td>
+    </tr>
+    <tr>
+        <td colspan=2>Guessed Letters Array:</td>
+    </tr>
+    <tr>
+        <td colspan=2 class="noclass" id="guessed">Guessed Letters Array<span></span></td>
     </tr>
 </table>
 </div>
+<input id="getInput" type="text" id="getInput" maxlength="1"><button type="button" onclick="getInputValue();">Guess!</button>
 
 <body>
     

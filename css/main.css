@@ -1,5 +1,10 @@
 body {
     max-width: 500px;
+    background-color: white;
+    border: 5px solid black;
+    margin: 20px auto;
+    pad: 20px auto;
+    align-content: center;
 }
 
 
@@ -16,6 +21,7 @@ table {
     width:70%; 
     margin-left:15%; 
     margin-right:15%;
+    background: aqua;
 };
 div{ 
     border: 5px solid white; 

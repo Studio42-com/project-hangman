@@ -1,0 +1,78 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww15040\viewh9760\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Convert word(random) to array(randomArray) - completed.\
+\
+Gameplay element 1:\
+Input, 1 character. - see input field below. Not totally tested yet.\
+Button for input.\
+	restrict input to text - not tested yet\
+	convert to lowercase(even if lowercase) - tested and confirmed\
+\
+	\
+\
+Additional tasks:\
+\
+Check input against randomArray(Convert chosen word to an array of single characters)\
+\
+	if true, check index, push to lettersArray at that index point.\
+		-1 from letter remaining\
+		reset input\
+	if false\
+		-1 from bad guesses\
+		push bad letter to end of array for bad letters\
+			perhaps add sort function for bad letters.\
+		reset input\
+	Checks for this above section:just check for true/false, return values to console.\
+\
+	check letters remain.\
+		if >0, continue\
+		if =0, winner\
+	Check bad guesses\
+		if >0, continue\
+		if =0, game over\
+\
+	Checks for above section: Simply check value of variables. Don\'92t worry about additional functions until these are confirmed.\
+		\
+Call render.\
+	make sure render initializes inputData(fieldname)\
+\
+Inputfield:(field made, button made, functionality shown)\
+	accept data once button is clicked(click event)\
+	this called \'93inputData\'94\
+	convert input data to lowercase.\
+	see if \'93inputData\'94 is in \'93randomWord\'94\
+\
+All this is working but may need to convert it/connect it to a function that then triggers into the basic gameplay function.\
+This may need to be an event listener.\
+\
+Had some moderate success today.\
+\
+DOM elements starting to function. I kind of distracted myself by working on those elements for a while. The success from that was really a good booster towards confidence. While may remove most of them later on, the momentum from the success was what I really needed.\
+\
+I found myself blocked from progressing so I went to a checklist to help organize my thoughts and various elements to get things under control and then further divided that down into smaller elements to prevent from feeling overwhelmed. After making this organizational plan, It now looks a lot more manageable. I\'92m taking a divide and conquer approach.\
+\
+The last element I worked on was the button gathering the input and then converting it to a lower case\
+\
+HTML and CSS could use some work.\
+\
+It doesn\'92t look like a lot of progress. The checklist work is really where the big work was. \
+\
+\
+ALERTS:\
+May need to convert the random word elements to functions that runs during the INIT function.\
+Need to reset the input field after receiving input and the render is completed.\
+Will need to add a \'93Play again\'94 function for win/lose/restart\
+\
+Warnings and notices:\
+INIT does not reset the random selection. This will likely have to be done as part of the proper initialization.\
+\
+\
+	\
+\
+\
+}
