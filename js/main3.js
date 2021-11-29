@@ -7,7 +7,7 @@ let loseCounter = 6;
 
 gameplay(randomArray,lettersArray, guessedLetters, winCounter, loseCounter, inputData);
 
-//gameplay funtion
+//gameplay function
 function gameplay(randomArray,lettersArray, guessedLetters, winCounter,loseCounter, inputData) {
 let indexArray = randomArray.indexOf(inputData); {
     if (indexArray > -1) {
