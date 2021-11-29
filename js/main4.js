@@ -59,7 +59,7 @@ function getInputValue(){
     gamePlay(randomArray,lettersArray, guessedLetters, wordIndex, winCounter,loseCounter, inputData);
     console.log("preparing to run gamePlay");   
 };
-/* -------------------gamePlay function ----------------*/
+/* --gamePlay function --*/
 //function gamePlay(randomArray,lettersArray, guessedLetters, winCounter, loseCounter, inputData);
 function gamePlay(randomArray,lettersArray, guessedLetters, wordIndex, winCounter,loseCounter, inputData) {
     console.log("Starting gamePlay function");
@@ -88,10 +88,10 @@ console.log("gamePlay Function has completed.");
     render();
 };
 
-/*------------------- End gamePlay function --------------------*/
+/*-- End gamePlay function --*/
 
 function render(){
-    console.log("post-render report: Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
+    console.log("pre-render report: Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
     document.getElementById("guessWord").innerHTML = lettersArray; //remove the comas later.
     document.getElementById("showRandom").innerHTML = randomArray; //remove the comas later,remove later.
 
