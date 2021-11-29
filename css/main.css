@@ -29,3 +29,7 @@ div{
     margin: auto; 
     align-items: center;
   };
+
+input [type=text] {
+    width: 15px;
+  }
