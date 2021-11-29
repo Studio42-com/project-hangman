@@ -39,7 +39,7 @@ function getRandom(database){ //select word, build arrays, determine letters cou
  function init(){ //initialize and reset for new game.
     getRandom(database);
     loseCounter = 6;
-    winCounter = random.length;
+//    winCounter = random.length;
     guessedLetters = [];
     wordIndex;
     //console.log(lettersArray, remainingLetters, random, loseCounter,winCounter,guessedLetters);
@@ -56,12 +56,12 @@ function getInputValue(){
     alert(inputData);
     console.log("The Selected Letter is: ",inputData);
     console.log("Completed getting user input");
-    gamePlay(randomArray,lettersArray, guessedLetters, wordIndex, winCounter,loseCounter, inputData);
+    gamePlay();
     console.log("preparing to run gamePlay");   
 };
 /* --gamePlay function --*/
 //function gamePlay(randomArray,lettersArray, guessedLetters, winCounter, loseCounter, inputData);
-function gamePlay(randomArray,lettersArray, guessedLetters, wordIndex, winCounter,loseCounter, inputData) {
+function gamePlay() {
     console.log("Starting gamePlay function");
     wordIndex = randomArray.indexOf(inputData); {
     if (wordIndex > -1) {
