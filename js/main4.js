@@ -44,8 +44,7 @@ function getRandom(database){ //select word, build arrays, determine letters cou
     wordIndex;
     //console.log(lettersArray, remainingLetters, random, loseCounter,winCounter,guessedLetters);
     console.log("I just ran INIT");
-    render();
-    
+    render();    
 };
 
 function getInputValue(){
@@ -53,14 +52,13 @@ function getInputValue(){
     inputData = (document.getElementById("getInput").value).toLowerCase();
        
     // Displaying the value
-    alert(inputData);
+    //alert(inputData);
     console.log("The Selected Letter is: ",inputData);
     console.log("Completed getting user input");
     gamePlay();
     console.log("preparing to run gamePlay");   
 };
 /* --gamePlay function --*/
-//function gamePlay(randomArray,lettersArray, guessedLetters, winCounter, loseCounter, inputData);
 function gamePlay() {
     console.log("Starting gamePlay function");
     wordIndex = randomArray.indexOf(inputData); {
@@ -68,6 +66,7 @@ function gamePlay() {
         (winCounter -= 1);
         console.log("winCounter should be less 1")
         lettersArray.splice(wordIndex,1,inputData);
+        goodGuess;
         function goodGuess(){
             alert ("Good Letter choice!");
             }
@@ -75,12 +74,23 @@ function gamePlay() {
                 (loseCounter -=1);
                 console.log("loseCounter should be less 1")
                 guessedLetters.push(inputData);
+                badGuess;
                 function badGuess(){
                     alert ("You have chosen incorrectly");
                     }
 
                 }
     }
+    console.log("checking winner/loser");
+    if (winCounter == 0 ){
+        alert('You won!');
+    
+    }
+    if (loseCounter == 0 ){
+        alert("Uh, yeah, that didn't exactly end favorably");
+        
+    }
+
 console.log("Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
 console.log("Valid Letters :", lettersArray)
 console.log("Bad letters: ", guessedLetters);
@@ -99,5 +109,7 @@ function render(){
     document.getElementById("remainingLetters").innerHTML = winCounter;
     document.getElementById("guessed").innerHTML = guessedLetters;
     console.log("post-render report: Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
+    getInput.value = "";
+    document.getElementById("picture").innerHTML ="<img src=\'images/0.jpg\' border=1 width=25% height=25%>";
     console.log("I have run Render");
 };
