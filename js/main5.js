@@ -50,13 +50,25 @@ function getRandom(database){ //select word, build arrays, determine letters cou
 function getInputValue(){
     // Selecting the input element and get its value 
     inputData = (document.getElementById("getInput").value).toLowerCase();
-       
-    // Displaying the value
+//Check for duplicates
+    let dupCheck = guessedLetters.indexOf(inputData); {
+        if (dupCheck > -1) {
+            alert("Select something else");
+            getInput.value = "";
+            return;
+        }
+//End duplicate checks        
+    };
+
+     
+
+// Displaying the value
     //alert(inputData);
     console.log("The Selected Letter is: ",inputData);
     console.log("Completed getting user input");
     gamePlay();
-    console.log("preparing to run gamePlay");   
+    console.log("preparing to run gamePlay"); 
+       
 };
 /* --gamePlay function --*/
 function gamePlay() {
@@ -66,7 +78,8 @@ function gamePlay() {
         (winCounter -= 1);
         console.log("winCounter should be less 1")
         lettersArray.splice(wordIndex,1,inputData);
-        guessedLetters.push(inputData);
+        guessedLetters.push(inputData); //all guessed characters go into guessedLetters array.
+                                        // so we can query if a character has been re-used.
         goodGuess;
         function goodGuess(){
             alert ("Good Letter choice!");
@@ -114,3 +127,14 @@ function render(){
     document.getElementById("picture").innerHTML ="<img src=\'images/0.jpg\' border=1 width=25% height=25%>";
     console.log("I have run Render");
 };
+
+/*-- duplicate Check function  --*/
+// function duplicates();
+    // dupeCheck = lettersArray.indexOf(inputData);{
+        //     if (dupeCheck > -1)
+        //         alert("letter Already chosen");
+        //         getInput.value = "";
+        //         console.log("DuplicateCheck: ",dupeCheck);
+        //         return;
+        // }; 
+/*--- end duplicate Check function  --*/  
