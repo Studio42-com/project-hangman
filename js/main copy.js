@@ -2,12 +2,12 @@
 const database = ["pug", "icon", "crate", "orange", "lobster", "pyromaniac", "level", "microphone", "diabolo", "yoyo", "begleri", "astrojax", "spintop", "koma", "chonkakegoma", "juggling", "console", "shutter", "pound", "phenom", "phenomizm", "superstar","gauntlet","strix","horizon","flight", "northstar", "popstar", "fiesta","gnarwal","chief","marvel", "anglam", "jetset","sleipnir","elysian", "shibari","diamondback"];
 
 const image6 = "images/spacecraft.png";
-const image5 = "images/5.png";
-const image4 = "images/4.png";
-const image3 = "images/3.png";
-const image2 = "images/2.png";
-const image1 = "images/1.png";
-const image0 = "images/0.png";
+const image5 = "images/5.jpg";
+const image4 = "images/4.jpg";
+const image3 = "images/3.jpg";
+const image2 = "images/2.jpg";
+const image1 = "images/1.jpg";
+const image0 = "images/0.jpg";
 const winImg = "images/rocketlaunch.png";
 
 const lookup = {
@@ -29,11 +29,11 @@ var remainingLetters; //how many letters left, based on random.length.
 var random; //randomly selected word
 let guessedLetters = []; //array for letters guessed, display.
 let winCounter; //if letters left and countdown = 0, declare win.
+
 let loseCounter; //if = 0, game over.
 let inputData; //data from user input.
 let wordIndex; //crucial for building guessword.
 let indexes = []; //allows to handle single orrepeated letters
-
 /*----- event listeners -----*/
 
 /*----- functions -----*/
@@ -54,7 +54,6 @@ function init() { //initialize and reset for new game.
     loseCounter = 6;
     guessedLetters = [];
     wordIndex;
-    document.getElementById("showRandom").innerHTML = "";
     render();
 };
 
@@ -65,7 +64,6 @@ function getInputValue() {
     let dupCheck = guessedLetters.indexOf(inputData); {
         if (dupCheck > -1) {
             document.getElementById("messages").innerHTML = "Select something else";
-            document.getElementById("messages").style.backgroundColor = 'orange'
             getInput.value = "";
             return;
         } //End duplicate checks        
@@ -84,7 +82,6 @@ function gamePlay() {
              goodGuess();            
         } else {
             (loseCounter -= 1);
-
             badGuess();            
         }
     }
@@ -93,20 +90,18 @@ function gamePlay() {
         document.getElementById("picture").innerHTML = `<img src="${winImg}" width=25% height=25% border=1>`;
         document.getElementById("guessWord").innerHTML = lettersArray.join(' ');
         document.getElementById("guessWord").style.backgroundColor = 'blue';
-        document.getElementById("showRandom").innerHTML = `Great job!`;
-        document.getElementById("showRandom").style.backgroundColor = "greenyellow";
-        document.getElementById("remainingLetters").innerHTML = winCounter; 
         return;
     }
     if (loseCounter == 0) {
         document.getElementById("messages").innerHTML = "That didn't end well....";
-        document.getElementById("guessWord").innerHTML = lettersArray.join(' ');
-        document.getElementById("showRandom").innerHTML = `The secret word was:  ${randomArray.join("")}`;
-        document.getElementById("showRandom").style.backgroundColor = "yellow";
-        document.getElementById("badGuesses").innerHTML = loseCounter; 
+        document.getElementById("guessWord").innerHTML = lettersArray.join(' '); 
+     
+        document.getElementById("showRandom").innerHTML = randomArray.join(""); //remove the comas later,remove later.
+    
+
         return;
     }
-    render();
+    //render();
 };
 
 /*-- End gamePlay function --*/
@@ -116,7 +111,6 @@ function goodGuess() {
 }
 function badGuess() {
     document.getElementById("messages").innerHTML = "You have chosen incorrectly";document.getElementById("messages").style.backgroundColor = "red";
-
 }
 function getAllIndexes() {
     for (let i = 0; i < randomArray.length; i++)
@@ -135,11 +129,13 @@ function multiLetters() {
 }
 
 function render() {
-    document.getElementById("guessWord").innerHTML = lettersArray.join(' ');
+     document.getElementById("guessWord").innerHTML = lettersArray.join(' ');
+    //document.getElementById("showRandom").innerHTML = randomArray; //remove the comas later,remove later.
     document.getElementById("badGuesses").innerHTML = loseCounter;
     document.getElementById("remainingLetters").innerHTML = winCounter;
     document.getElementById("guessed").innerHTML = guessedLetters;
-    getInput.value = ""; //initialize input field
+    console.log("post-render report: Index: ", wordIndex, "WinCounter: ", winCounter, "LoseCounter: ", loseCounter);
+    getInput.value = "";
     document.getElementById("picture").innerHTML = `<img src="${lookup[loseCounter]}" width=25% height=25% border=1>`;
 };
 
