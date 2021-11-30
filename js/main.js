@@ -1,5 +1,6 @@
 /*----- constants -----*/
-const database = ["pug", "icon", "crate", "orange", "lobster", "pyromaniac", "level", "microphone", "diabolo", "yoyo", "begleri", "astrojax", "spintop", "koma", "chonkakegoma", "juggling", "console", "shutter", "pound", "phenom", "phenomizm", "superstar","gauntlet","strix","horizon","flight", "northstar", "popstar", "fiesta","gnarwal","chief","marvel", "anglam", "jetset","sleipnir","elysian", "shibari","diamondback"];
+const database = ["pug", "icon", "crate", "orange", "lobster", "pyromaniac", "level", "microphone", "diabolo", "yoyo", "begleri", "astrojax", "spintop", "koma", "chonkakegoma", "juggling", "console", "shutter", "pound", "phenom", "phenomizm", "superstar","gauntlet","strix","horizon","flight", "northstar", "popstar", "fiesta","gnarwal","chief","marvel", "anglam", "jetset","sleipnir","elysian", "shibari","diamondback", "modified", "wing", "butterfly", "responsive", "unresponsive", "bearing", "string", "counter-weight", "1to1", "boomerang", "modem", "multiplexer", "concentrator", "router", "switch", "hub", "cabinent", "capacitor", "cone", "transformer", "cabinet", "array", "point-source", "compressor", "limiter", "gate", "preamp", "tube", "dynamic", "ribbon", "condenser", "resistor", "solder", "digital", "analog", "workstation", "panel", "cariod", "super-cardiod", "hyper-cardiod", "omnidirectional", "figure-8", "monitor", "wedge", "side-fill", "engineer", "ethernet", "coax", "fiber", "headphones", "cans"];
+
 
 const image6 = "images/spacecraft.png";
 const image5 = "images/5.png";
@@ -9,7 +10,6 @@ const image2 = "images/2.png";
 const image1 = "images/1.png";
 const image0 = "images/0.png";
 const winImg = "images/rocketlaunch.png";
-
 const lookup = {
     "6": image6,
     "5": image5,
@@ -85,7 +85,6 @@ function gamePlay() {
              goodGuess();            
         } else {
             (loseCounter -= 1);
-
             badGuess();            
         }
     }
