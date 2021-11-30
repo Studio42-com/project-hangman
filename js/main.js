@@ -90,7 +90,7 @@ function gamePlay() {
     }
     if (winCounter == 0) {
         document.getElementById("messages").innerHTML = "You Won!";
-        document.getElementById("picture").innerHTML = `<img src="${winImg}" width=25% height=25% border=1>`;
+        document.getElementById("picture").innerHTML = `<img src="${winImg}" width=25% height=25%>`;
         document.getElementById("guessWord").innerHTML = lettersArray.join(' ');
         document.getElementById("guessWord").style.backgroundColor = 'blue';
         document.getElementById("showRandom").innerHTML = `Great job!`;
@@ -103,7 +103,8 @@ function gamePlay() {
         document.getElementById("guessWord").innerHTML = lettersArray.join(' ');
         document.getElementById("showRandom").innerHTML = `The secret word was:  ${randomArray.join("")}`;
         document.getElementById("showRandom").style.backgroundColor = "yellow";
-        document.getElementById("badGuesses").innerHTML = loseCounter; 
+        document.getElementById("badGuesses").innerHTML = loseCounter;
+        document.getElementById("picture").innerHTML = `<img src="${lookup[loseCounter]}" width=25% height=25%>` 
         return;
     }
     render();
@@ -140,6 +141,6 @@ function render() {
     document.getElementById("remainingLetters").innerHTML = winCounter;
     document.getElementById("guessed").innerHTML = guessedLetters;
     getInput.value = ""; //initialize input field
-    document.getElementById("picture").innerHTML = `<img src="${lookup[loseCounter]}" width=25% height=25% border=1>`;
+    document.getElementById("picture").innerHTML = `<img src="${lookup[loseCounter]}" width=25% height=25%>`;
 };
 
