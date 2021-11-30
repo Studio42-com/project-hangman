@@ -1,5 +1,7 @@
 /*----- constants -----*/
-const database = ["pug", "icon", "crate", "orange", "lobster", "pyromaniac"];
+// const database = ["pug", "icon", "crate", "orange", "lobster", "pyromaniac"];
+const database = ["level"];
+
 const image6 ="images/spacecraft.png";
 const image5 ="images/5.jpg";
 const image4 ="images/4.jpg";
@@ -23,13 +25,20 @@ const lookup = {
 /*----- app's state (variables) -----*/
 var randomArray; //the selected word converted to an array of single letters.
 var lettersArray; //displays correctly guessed letters
+var lettersArray2 =[]; //displays correctly guessed letters, testing only.
+
 var remainingLetters; //how many letters left, based on random.length.
 var random; //randomly selected word
 let guessedLetters =[]; //array for letters guessed, display.
+let guessedLetters2 =[]; //array for letters guessed, display. testing only
+
 let winCounter; //if letters left and countdown = 0, declare win.
+let winCounter2 = 5; //if letters left and countdown = 0, declare win.
+
 let loseCounter; //if = 0, game over.
 let inputData; //data from user input.
 let wordIndex;
+let indexes =[];
 
 
 //console.log(random,random.length);
@@ -48,9 +57,11 @@ function getRandom(database){ //select word, build arrays, determine letters cou
     //this supports the random selections if I add/subtract array items without code modifications except to databse)
     randomArray = Array.from(random);
     lettersArray = []; //this is just the display of "_"
+    lettersArray2 = []; //temp,testing
     winCounter = remainingLetters = random.length; //had to add value to variable
     for (var i = 0; i < random.length; i++) {
       lettersArray[i] = "_";
+      lettersArray2[i] = "_"; //again, testing. Remove later
     }
     console.log("Randomization Complete");
 };
@@ -94,7 +105,11 @@ function getInputValue(){
 /* --gamePlay function --*/
 function gamePlay() {
     console.log("Starting gamePlay function");
-    wordIndex = randomArray.indexOf(inputData); {
+    wordIndex = randomArray.indexOf(inputData);
+    getAllIndexes(); 
+
+    
+    {
     if (wordIndex > -1) {
         (winCounter -= 1);
         console.log("winCounter should be less 1")
@@ -139,7 +154,27 @@ console.log("gamePlay Function has completed.");
     render();
 };
 
-/*-- End gamePlay function --*/
+/*-- End gamePlay function --*/ //use guestLetters2 for testing
+function getAllIndexes() {
+    for (let i=0; i<randomArray.length; i++)
+        if (randomArray[i] === inputData){
+            indexes.push(i)
+        };
+        console.log("Indexes: ", indexes);
+}
+
+function multiLetters() {
+    for (let i=0; i<indexes.length; i++) {
+        lettersArray2.splice(indexes[i],1,inputData);
+        (winCounter2 -= 1); //may need emergency removal
+        console.log("test Array: ",lettersArray2, winCounter2)
+        
+    }
+
+    indexes.splice(0,indexes.length);
+;}
+
+
 
 function render(){
     console.log("pre-render report: Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
