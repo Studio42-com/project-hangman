@@ -21,28 +21,20 @@ const lookup = {
     "0": image0
 };
 
-
 /*----- app's state (variables) -----*/
 var randomArray; //the selected word converted to an array of single letters.
 var lettersArray; //displays correctly guessed letters
 var lettersArray2 =[]; //displays correctly guessed letters, testing only.
-
 var remainingLetters; //how many letters left, based on random.length.
 var random; //randomly selected word
 let guessedLetters =[]; //array for letters guessed, display.
-let guessedLetters2 =[]; //array for letters guessed, display. testing only
-
 let winCounter; //if letters left and countdown = 0, declare win.
-let winCounter2 = 5; //if letters left and countdown = 0, declare win.
-
 let loseCounter; //if = 0, game over.
 let inputData; //data from user input.
 let wordIndex;
 let indexes =[];
 
 
-//console.log(random,random.length);
-// console.log(lettersArray, remainingLetters, random);
 
 /*----- cached element references -----*/
 
@@ -63,7 +55,6 @@ function getRandom(database){ //select word, build arrays, determine letters cou
       lettersArray[i] = "_";
       lettersArray2[i] = "_"; //again, testing. Remove later
     }
-    console.log("Randomization Complete");
 };
 
  function init(){ //initialize and reset for new game.
@@ -73,54 +64,41 @@ function getRandom(database){ //select word, build arrays, determine letters cou
     guessedLetters = [];
     wordIndex;
     //console.log(lettersArray, remainingLetters, random, loseCounter,winCounter,guessedLetters);
-    console.log("I just ran INIT");
     render();    
 };
 
-function getInputValue(){
-    // Selecting the input element and get its value 
+function getInputValue(){   // Selecting the input element and get its value 
     inputData = (document.getElementById("getInput").value).toLowerCase();
 //Check for duplicates
     let dupCheck = guessedLetters.indexOf(inputData); {
         if (dupCheck > -1) {
-            // alert("Select something else");
             document.getElementById("messages").innerHTML = "Select something else";
-
             getInput.value = "";
             return;
         }
 //End duplicate checks        
     };
+       };
 
-     
-
-// Displaying the value
-    //alert(inputData);
-    console.log("The Selected Letter is: ",inputData);
-    console.log("Completed getting user input");
-    gamePlay();
-    console.log("preparing to run gamePlay"); 
-       
-};
 /* --gamePlay function --*/
 function gamePlay() {
     console.log("Starting gamePlay function");
     wordIndex = randomArray.indexOf(inputData);
-    getAllIndexes(); 
-
-    
+    getAllIndexes();     
     {
     if (wordIndex > -1) {
-        (winCounter -= 1);
-        console.log("winCounter should be less 1")
-        lettersArray.splice(wordIndex,1,inputData);
-        guessedLetters.push(inputData); //all guessed characters go into guessedLetters array.
+
+for (let i=0; i<indexes.length; i++) {
+    lettersArray.splice(indexes[i],1,inputData);
+    (winCounter -= 1); //may need emergency removal      
+}
+indexes.splice(0,indexes.length); //clear index
+
+guessedLetters.push(inputData); //all guessed characters go into guessedLetters array.
                                         // so we can query if a character has been re-used.
         goodGuess();
         function goodGuess(){
-            // alert ("Good Letter choice!");
-            document.getElementById("messages").innerHTML = "Good Choice!";
-            
+            document.getElementById("messages").innerHTML = "Good Choice!";            
             }
             } else {
                 (loseCounter -=1);
@@ -129,74 +107,37 @@ function gamePlay() {
                 badGuess();
                 function badGuess(){
                     document.getElementById("messages").innerHTML = "You have chosen incorrectly";
-
                     }
-
                 }
     }
     console.log("checking winner/loser");
     if (winCounter == 0 ){
         document.getElementById("messages").innerHTML = "You Won!";
         document.getElementById("picture").innerHTML = `<img src="${winImg}" width=25% height=25% border=1>`;
-        console.log("Winner Sequence Done");
-        return;
+        document.getElementById("guessWord").innerHTML = lettersArray.join(' '); 
+        return; //must break script upon win.
     }
     if (loseCounter == 0 ){
-        // alert("Uh, yeah, that didn't exactly end favorably");
-        document.getElementById("messages").innerHTML = "That didn't end well....";
-        
+        document.getElementById("messages").innerHTML = "That didn't end well....";       
     }
-
-console.log("Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
-console.log("Valid Letters :", lettersArray)
-console.log("Bad letters: ", guessedLetters);
-console.log("gamePlay Function has completed.");
     render();
 };
-
 /*-- End gamePlay function --*/ //use guestLetters2 for testing
 function getAllIndexes() {
     for (let i=0; i<randomArray.length; i++)
         if (randomArray[i] === inputData){
             indexes.push(i)
         };
-        console.log("Indexes: ", indexes);
 }
-
-function multiLetters() {
-    for (let i=0; i<indexes.length; i++) {
-        lettersArray2.splice(indexes[i],1,inputData);
-        (winCounter2 -= 1); //may need emergency removal
-        console.log("test Array: ",lettersArray2, winCounter2)
-        
-    }
-
-    indexes.splice(0,indexes.length);
-;}
-
-
 
 function render(){
     console.log("pre-render report: Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
     document.getElementById("guessWord").innerHTML = lettersArray.join(' '); //remove the comas later.
     document.getElementById("showRandom").innerHTML = randomArray; //remove the comas later,remove later.
-
     document.getElementById("badGuesses").innerHTML = loseCounter;
     document.getElementById("remainingLetters").innerHTML = winCounter;
     document.getElementById("guessed").innerHTML = guessedLetters;
     console.log("post-render report: Index: ",wordIndex, "WinCounter: ",winCounter, "LoseCounter: ",loseCounter);
     getInput.value = "";
     document.getElementById("picture").innerHTML = `<img src="${lookup[loseCounter]}" width=25% height=25% border=1>`;
-    console.log("I have run Render");
 };
-
-/*-- duplicate Check function  --*/
-// function duplicates();
-    // dupeCheck = lettersArray.indexOf(inputData);{
-        //     if (dupeCheck > -1)
-        //         alert("letter Already chosen");
-        //         getInput.value = "";
-        //         console.log("DuplicateCheck: ",dupeCheck);
-        //         return;
-        // }; 
-/*--- end duplicate Check function  --*/  

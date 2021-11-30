@@ -15,6 +15,7 @@ h1 {
 table, tr, td {
     border: 2px solid black;
     text-align: center;
+    margin: auto;
 };
 
 table {
@@ -32,4 +33,10 @@ div{
 
 input [type=text] {
     width: 15px;
+  }
+
+  #messages {
+      background-color: yellow;
+      color: black;
+      font-weight: 700;
   }
