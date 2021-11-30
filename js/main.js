@@ -55,6 +55,7 @@ function init() { //initialize and reset for new game.
     guessedLetters = [];
     wordIndex;
     document.getElementById("showRandom").innerHTML = "";
+    document.getElementById("showRandom").style.backgroundColor = '';
     render();
 };
 
@@ -65,7 +66,7 @@ function getInputValue() {
     let dupCheck = guessedLetters.indexOf(inputData); {
         if (dupCheck > -1) {
             document.getElementById("messages").innerHTML = "Select something else";
-            document.getElementById("messages").style.backgroundColor = 'orange'
+            document.getElementById("messages").style.backgroundColor = "yellow";
             getInput.value = "";
             return;
         } //End duplicate checks        
@@ -117,14 +118,12 @@ function goodGuess() {
 }
 function badGuess() {
     document.getElementById("messages").innerHTML = "You have chosen incorrectly";document.getElementById("messages").style.backgroundColor = "red";
-
 }
 function getAllIndexes() {
     for (let i = 0; i < randomArray.length; i++)
         if (randomArray[i] === inputData) {
             indexes.push(i)
         };
-    console.log("Indexes: ", indexes);
 }
 function multiLetters() {
     for (let i = 0; i < indexes.length; i++) {
@@ -132,7 +131,6 @@ function multiLetters() {
         (winCounter -= 1); 
     }
     indexes.splice(0, indexes.length);
-    ;
 }
 
 function render() {
