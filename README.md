@@ -55,3 +55,4 @@ Future ideas would likely include:
 - Better use of CSS and a better color scheme
 - A background that represents the theme, which may also be extended to include new graphics
 - Altering the number of bad guesses.
+- Random result messages for good and bad results.
