@@ -20,7 +20,7 @@ The majority of words chosen were either elements from professional audio, IT an
 Load-up the page and click "Let's Go" and you're ready to begin.
 
 ![Let's get started](
-https://github.com/Studio42-com/project-hangman/first.png)
+https://github.com/Studio42-com/project-hangman/blob/gh-pages/first.png)
 
 As we can see, the presentation is very simple and minimal.
 "Get Started" and "Restart" use the same function to begin gameplay.
