@@ -26,24 +26,24 @@ As we can see, the presentation is very simple and minimal.
 "Get Started" and "Restart" use the same function to begin gameplay.
 
 ![Begin Game Play](
-https://github.com/Studio42-com/project-hangman/begin.png)
+https://github.com/Studio42-com/project-hangman/blob/gh-pages/begin.png)
 
 Rather than begin with a blank page, I chose to start with a rocket just to be more visually interesting.
 
 ![Winning](
-https://github.com/Studio42-com/project-hangman/win.png)
+https://github.com/Studio42-com/project-hangman/blob/gh-pages/win.png)
 
 Upon winning, the rocket engine ignites and win-type messages are displayed.
 
 ![Unsuccessful](
-https://github.com/Studio42-com/project-hangman/lose.png)
+https://github.com/Studio42-com/project-hangman/blob/gh-pages/lose.png)
 
 Of course, not everyone can win, and sorry, there's no participation trophies here. This is the "I have failed to achieve the desired objective" screen, also known as the "lose result".
 
 If "cheating" is your thing, then by all means, go to the console in Chrome and type in "randomArray" and it will show you the array used for solving the randomly chosen word.
 
 ![cheating!](
-https://github.com/Studio42-com/project-hangman/cheat.png)
+https://github.com/Studio42-com/project-hangman/blob/gh-pages/cheat.png)
 
 
 
