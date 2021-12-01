@@ -11,7 +11,7 @@ My approach was to provide a very minimal presentation, devoid of graphics. The 
 Another issue was "why did this work in my test environment and not in production". Asking for help showed where the issue was. This shows the value of having an additional set of eyes, especially a more experienced set of eyes, helping to spot areas of concern. Just because your terminal is saying "no problems" doesn't mean that's necessarily true.
 
 Onto the game:
-The game is presented in a minimalistic layout that also supports graphis. The database can be extended to handle much larger numbers of entries. I'm currently only using a relatively small number of entries to support proof of concept and functionality. No additional changes need to be made to the javascript file. Additionally, the database could be made into a sepparate .js file, which could be called from the index.html.
+The game is presented in a minimalistic layout that also supports graphics. The database can be extended to handle much larger numbers of entries. I'm currently only using a relatively small number of entries to support proof of concept and functionality. No additional changes need to be made to the javascript file. Additionally, the database could be made into a sepparate .js file, which could be called from the index.html.
 
 https://studio42-com.github.io/project-hangman/
 
